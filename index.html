@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Interactiva</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2F665F;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #F4D6A0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.5s;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #F4A000;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            transition: transform 0.5s;
+            transform-origin: top;
+        }
+        .seal {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: #C4472C;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        .letter {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: justify;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        .full-sheet {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 90%;
+            background-color: white;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            display: none;
+            text-align: justify;
+            overflow-y: auto;
+            font-size: 16px;
+        }
+        .container.open {
+            display: none;
+        }
+        .full-sheet.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="openLetter()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="seal"></div>
+        </div>
+    </div>
+
+    <div class="full-sheet" id="fullSheet">
+        <p>Wenas wenas… ¿sigues enojada?</p>
+        <p>Mira, la verdad todavía no entiendo bien qué pasó, solo sé que un día estábamos bien y al siguiente me dejaste en visto. Te extraño y no sé por qué reaccionaste así. A estas alturas no puedo decir que me da igual, porque sabes que lo que siento es fuerte y estar lejos de ti se me hace difícil.</p>
+        <p>Y si amarte es caminar sobre una cuerda floja sin miedo a caer. Es saber que hay razones para detenernos, pero aún más razones para seguir. Es esa locura que desafía la lógica, esa tormenta en calma que nadie entiende, pero que en el fondo, nosotros sí.</p>
+        <p>Dicen que hay amores que nacen para quedarse y otros que nacen para desafiar todo lo que se supone que debe ser. Y el nuestro… el nuestro no cabe en ninguna categoría. Es ese secreto que arde en la piel, esa historia que no necesita testigos, porque se siente en cada mirada, en cada palabra que no se dice, pero que se entiende.</p>
+        <p>Sí, hay miedo. Sí, hay riesgos. Pero, ¿y qué? Si algo he aprendido es que lo que se siente de verdad nunca es fácil, nunca es seguro, nunca es predecible. Y aun así, aquí estoy, queriéndote con todas las consecuencias.</p>
+        <p>Porque si algo es cierto, es esto: prefiero un amor imposible a un amor que nunca intentamos.</p>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.querySelector('.container').classList.add('open');
+            document.querySelector('.full-sheet').classList.add('show');
+        }
+    </script>
+</body>
+</html>
